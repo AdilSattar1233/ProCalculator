@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
     //Todo make method for splash
     private fun splash(){
-        Handler().postDelayed(Runnable {
+        Handler().postDelayed({
             val intent = Intent(applicationContext , MainActivity::class.java)
             startActivity(intent)
         },2000)
