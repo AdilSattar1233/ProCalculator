@@ -29,7 +29,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mBtnDivide : ImageButton
     private lateinit var mBtnDot : ImageButton
     private lateinit var mBtnEqual : ImageButton
+    private var result : Double = 0.0
 
+    
 
 
 
@@ -93,7 +95,26 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.btnEqual -> {
                 Log.d("TAG" , "Equal")
-                
+                val myArray = mDisplayResult.text.toString().toCharArray()
+
+                for (item in myArray){
+                    Log.d("TAG" , "$item")
+
+                    if (item != '+'){
+                       // mDisplayResult.append("\n= $item" )
+                        result += item.toDouble()
+                    }else{
+
+                    }
+
+
+                }
+
+
+
+
+                //Toast.makeText(applicationContext , myArray[0].toString() , Toast.LENGTH_SHORT).show()
+
             }
 
             R.id.btnPlus -> {
@@ -148,13 +169,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun removeLastCharacter(oldValue : String){
-
         mDisplayResult.text = oldValue.substring(0 , oldValue.lastIndex)
     }
 
-    private fun getLastCharacter(value : String) : Char{
-        return value[value.length]
-    }
 
     private fun init(){
         /***
